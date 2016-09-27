@@ -21,18 +21,37 @@ void loop()
   //e piscando aleatoriamente com uma frequencia crescente, até piscar tão rápido que acende tdoas
   
   randomTillAll(100); // parametro para delimitar o quanto vai demorar cada piscada aleatoria
-  paraFrente(100); // para determinar a velocidade de avanco
-  paraTras(100); //para determinar a velocidade de volta
+  paraFrente(100, 1); // para determinar a velocidade e direcao de avanco
+  paraFrente(100, 0); // para determinar a velocidade e direcao de avanco
 }
 
 void randomTillAll(){
   
   }
 
-void paraFrente(){
-  
+void paraFrente(int intervalo, boolean direcao){
+  for(int i = 2; i < 9; i++){
+    acendeTodosEApagaUm(apagado);
   }
+  if(direcao){
+    apagado++;
+    if(apagado => 9) apagado = 2;
+  }
+  else{
+    apagado--;
+    if(apaagado <= 2) apagado = 9;
+  }
+  delay(intervalo);
+ }
 
-void paraTras(){
-  
-  }
+void acendeTodosEApagaUm(int _apagado){
+      
+   if(i != _apagado){
+     digitalWrite(i, HIGH);
+   }
+   else{
+     digitalWrite(_apagado, LOW);
+   }
+}
+
+
