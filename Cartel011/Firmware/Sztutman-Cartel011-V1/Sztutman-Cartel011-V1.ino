@@ -1,3 +1,5 @@
+int apagado = 2;
+
 
 void setup() {                
 
@@ -9,49 +11,31 @@ void setup() {
   pinMode(7, OUTPUT);  // ch F
   pinMode(8, OUTPUT);  // ch G
   pinMode(9, OUTPUT);  // ch H
-
-   
+   //Serial.begin(9600);
 }
 
 
 void loop() 
 {
-  //2~3 animações:
-  //pre frente e pra traz, (com o movimento apagando), ou seja, todas acesas, uma apagada
-  //e piscando aleatoriamente com uma frequencia crescente, até piscar tão rápido que acende tdoas
+  for(int i = 0; i < 4; i++){ // repete 19 vezes
+    paraFrente(60, 1); // intervalo (60ms), direcao
+  }
+
+  for(int i = 0; i < 20; i++){
+    paraFrente(60, 0); 
+  }
   
-  randomTillAll(100); // parametro para delimitar o quanto vai demorar cada piscada aleatoria
-  paraFrente(100, 1); // para determinar a velocidade e direcao de avanco
-  paraFrente(100, 0); // para determinar a velocidade e direcao de avanco
-}
-
-void randomTillAll(){
   
+  for(int i = 0; i < 5; i++){
+    paraFrente(150, 1); 
+    paraFrente(150, 0); 
   }
 
-void paraFrente(int intervalo, boolean direcao){
-  for(int i = 2; i < 9; i++){
-    acendeTodosEApagaUm(apagado);
+  for(int i = 0; i < 5; i++){
+    randomCrescente(); 
+    randomTillAll(30);
+    delay(1000);
   }
-  if(direcao){
-    apagado++;
-    if(apagado => 9) apagado = 2;
-  }
-  else{
-    apagado--;
-    if(apaagado <= 2) apagado = 9;
-  }
-  delay(intervalo);
- }
-
-void acendeTodosEApagaUm(int _apagado){
-      
-   if(i != _apagado){
-     digitalWrite(i, HIGH);
-   }
-   else{
-     digitalWrite(_apagado, LOW);
-   }
+  
 }
-
 
