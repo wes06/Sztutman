@@ -34,17 +34,22 @@ void randomTillAll(int intervalo){
 void paraFrente(int intervalo, boolean direcao){
   
   if(direcao){
-    for(int i = 2; i <=9;i++){
+    for(int i = 2; i <=5;i++){
       acendeTodosEApagaUm(i);
+      acendeTodosEApagaUm(i+4);
       delay(intervalo);
     }
   }
   else{
-    for(int i = 9; i >=2;i--){
+    for(int i = 5; i >=2;i--){
       acendeTodosEApagaUm(i);
+      acendeTodosEApagaUm(i+4);
       delay(intervalo);
     }
   }
+
+  // 2 3 4 5 
+  // 6 7 8 9
     
 
  }
@@ -70,4 +75,14 @@ void todos(boolean estado){
     }
 }
 
+
+void todosExcetoUm(boolean estado){
+  for(int i = 2; i <= 9; i++){
+    digitalWrite(i, estado);
+    if(){
+      digitalWrite(i, !estado);
+    }
+}
+
+}
 
