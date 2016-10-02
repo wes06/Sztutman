@@ -27,7 +27,7 @@ void randomTillAll(int intervalo){
       }
     }
   }
-  todos(HIGH);
+  todosExcetoUm(HIGH);
 }
 
 
@@ -46,11 +46,7 @@ void paraFrente(int intervalo, boolean direcao){
       acendeTodosEApagaUm(i+4);
       delay(intervalo);
     }
-  }
-
-  // 2 3 4 5 
-  // 6 7 8 9
-    
+  } 
 
  }
 
@@ -77,12 +73,14 @@ void todos(boolean estado){
 
 
 void todosExcetoUm(boolean estado){
+  int diferente = int(random(2,10));
   for(int i = 2; i <= 9; i++){
-    digitalWrite(i, estado);
-    if(){
+    if(i == diferente){
       digitalWrite(i, !estado);
     }
-}
-
+    else{
+      digitalWrite(i, estado);
+    }
+  }
 }
 
